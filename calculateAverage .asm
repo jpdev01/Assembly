@@ -23,18 +23,18 @@ avarage: # calcular media e armazena em t3
 	div $t3, $t2
 	mflo $t3
 print:
-	move $a0, $t3
+	move $a0, $t1
 	li $v0, 1
-	syscall # imprime media
+	syscall # imprime a soma de valores
 	
 	la $a0, breakLine
 	li $v0, 4 # quebra de linha
 	syscall
 	
 	beqz $t2, printError # se quantidade = 0, vai para printError
-	move $a0, $t1
+	move $a0, $t3
 	li $v0, 1
-	syscall # imprime a soma de valores
+	syscall # imprime media
 	
 	jal end # finaliza o programa
 printError:
